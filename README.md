@@ -17,8 +17,16 @@ A coin is tossed and a single 6-sided dice is rolled. Find the probability of la
 
 
 ```python
-# Your code here
+# Independent events : addition rule
+# P(heads) = 0.5, P(three) = 1/6 = 0.167
+p_h = 1/2
+p_3 = 1/6
+P = p_h * p_3
+print(P)
 ```
+
+    0.08333333333333333
+
 
 ## Exercise 2
 
@@ -27,8 +35,16 @@ After conducting a survey, one of the outcomes was that 8 out of 10 of the surve
 
 
 ```python
-# Your code here
+# permutation with replacement 8/10 chance all three times
+.80 * .80 *.80
 ```
+
+
+
+
+    0.5120000000000001
+
+
 
 ## Exercise 3
 70% of your friends like chocolate flavored ice cream, and 35% like chocolate AND like strawberry flavors.
@@ -37,8 +53,17 @@ What percent of those who like chocolate also like strawberry?
 
 
 ```python
-# Your code here
+# P(A) = 0.7, P(B) = 0.35
+#P(B|A) = P(Choc and Straw) / P(choc) = .35 / .7 = 0.50
+.35 / .7
 ```
+
+
+
+
+    0.5
+
+
 
 50% of your friends who like chocolate also like strawberry
 
@@ -47,8 +72,18 @@ What is the probability of drawing 2 consecutive aces from a deck of cards.
 
 
 ```python
-# Your code here
+# 4/52
+# 3/51
+# product rule: P_AB = P_A * P_B_given_A
+(4/52)*(3/51)
 ```
+
+
+
+
+    0.004524886877828055
+
+
 
 ## Exercise 5
 In a manufacturing factory that produces a certain product, there are 100 units of the product, 5 of which are defective. We pick three units from the 100 units at random. 
@@ -58,8 +93,15 @@ Hint: Use the chain rule here!
 
 
 ```python
-# Your code here
+P_A = 95/100 # 5 def out of 100
+P_BgivA = 94/99 # 5 def out of 99 (removed 1 good)
+P_C_givAB = 93/98 # 4 def out 98 (removed 2 good)
+P = P_A * P_BgivA * P_C_givAB
+print(P)
 ```
+
+    0.8559987631416203
+
 
 ## Exercise 6
 
@@ -78,8 +120,17 @@ Let $i,j$ be the numbers shown on the dice. The events $A$ and $B$ are described
 
 
 ```python
-# Your code here
+# Sample space = 6*6 = 36
+# P_A = 5 or 6 two rolls = 2 * 2 rolls = 4
+# P_B = i + j ; j = 3 or 2 = 3 + 2 = 5
+# P_AB = (5*4) = 20
+
+P_BgivA = (4/36)/(20/36)
+print(P_BgivA)
 ```
+
+    0.19999999999999998
+
 
 ## Exercise 7
 
@@ -101,8 +152,32 @@ With the knowledge we have about conditional probabilities, compute and interpre
 
 
 ```python
-# Your code here
+p_A = 0.5
+p_B = 0.4
+p_AB = 0.25
+
+# 𝑃(𝐵∣𝐴)
+p_AgivB = p_AB/p_A
+print(p_AgivB)
+
+# 𝑃(𝐵′∣𝐴)
+p_Bprime_giv_A = 1 - p_A
+print(p_Bprime_giv_A)
+
+# 𝑃(𝐴∣𝐵) 
+p_BgivA = p_AB/p_B
+print(p_BgivA)
+
+# 𝑃(𝐴′∣𝐵)
+p_Aprime_giv_B = 1 - p_BgivA
+print(p_Aprime_giv_B)
 ```
+
+    0.5
+    0.5
+    0.625
+    0.375
+
 
 ## Summary 
 
